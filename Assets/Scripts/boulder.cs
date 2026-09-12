@@ -2,17 +2,12 @@ using UnityEngine;
 
 public class Boulder : MonoBehaviour
 {
-    GameObject player;
-    PlayerMovement playerMovement;
-    Rigidbody2D rigidbody;
-    void Awake()
+    // Time in seconds before the boulder disappears
+    public float n = 5f;
+    void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerMovement = player.GetComponent<PlayerMovement>();
+        Invoke(nameof(RemoveBoulder), n);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        // None
-    }
+    void RemoveBoulder() { Destroy(gameObject); }
 }

@@ -106,7 +106,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 20
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -169,4 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c39b8db9cfb314f873f9e6154233e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  METEORSPEED: 0.5
+  METEORSPEED: 1.5
+  boulderPrefab: {fileID: 3897737167925254511, guid: d00fb391c5359394696309d304b37183, type: 3}
+  boulderCount: 2
+  boulderSpawnOffset: 0.3
+  boulderLaunchForce: 2
