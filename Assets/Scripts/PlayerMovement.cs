@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     private PlayerInput playerInput;
+
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
 
@@ -58,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void gameOver()
     {
+        // Kills player
         Debug.Log("Game Over");
     }
 

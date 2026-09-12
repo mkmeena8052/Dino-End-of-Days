@@ -6,7 +6,7 @@ public class MeteorMovement : MonoBehaviour
     PlayerMovement playerMovement;
     Rigidbody2D rigidbody;
 
-    [SerializeField] private float METEORSPEED = 0.5f;
+    [SerializeField] private float METEORSPEED = 3f;
 
     [Header("Shatter Settings")]
     [SerializeField] private GameObject boulderPrefab;
