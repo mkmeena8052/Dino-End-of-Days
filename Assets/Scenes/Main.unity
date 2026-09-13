@@ -1857,6 +1857,71 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1123962743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1123962745}
+  - component: {fileID: 1123962744}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1123962744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123962743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45644183bd3387a4aa25b6cea0ff4d64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  sounds:
+  - audioClip: {fileID: 8300000, guid: ee0acf3a31591a1478f06e41b6015a56, type: 3}
+    name: Game Over
+    volume: 1
+    pitch: 0.3
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 673f84e54220db344b86ae57e8cb03b2, type: 3}
+    name: Player Hurt
+    volume: 1
+    pitch: 0.3
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: eaee01edc77e747428eb50a2bc6c3980, type: 3}
+    name: Jump
+    volume: 1
+    pitch: 0.3
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: a82338f63a6a6c444b149ba429e863ac, type: 3}
+    name: Copter Sound
+    volume: 1
+    pitch: 0.3
+    source: {fileID: 0}
+--- !u!4 &1123962745
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123962743}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -23.8479, y: 9.9529, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1173938265
 GameObject:
   m_ObjectHideFlags: 0
@@ -3699,3 +3764,4 @@ SceneRoots:
   - {fileID: 468592465}
   - {fileID: 784763692}
   - {fileID: 8404097728114820759}
+  - {fileID: 1123962745}

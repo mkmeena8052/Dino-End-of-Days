@@ -66,6 +66,7 @@ class PlayerMovement : MonoBehaviour {
         {
             if (isGrounded || (!isGrounded && canDoubleJump))
             {
+                FindAnyObjectByType<AudioManager>().Play("Jump");
                 rb.linearVelocityY = jumpForce;
                 canDoubleJump = false;
             }
@@ -85,18 +86,24 @@ class PlayerMovement : MonoBehaviour {
 
     public void takeDamage(int amount)
     {
+        playerHealth -= amount;
+        Debug.Log(playerHealth);
         if (playerHealth <= 0) {
             playerHealth = 0;
-            if (!isDead) playerDied();
-            else Debug.Log("Damage Taken: " + amount);
+            if (!isDead)
+            {
+                isDead = true;
+                playerDied();
+            }
         }
         healthHUD.UpdateHealth(playerHealth);
+        if (playerHealth > 0) FindAnyObjectByType<AudioManager>().Play("Player Hurt");
     }
 
     public void playerDied()
     {
         Debug.Log("Player Died!");
-        isDead = true;
+        FindAnyObjectByType<AudioManager>().Play("Game Over");
         Destroy(gameObject);
     }
 
@@ -105,7 +112,6 @@ class PlayerMovement : MonoBehaviour {
 
     void Update()
     {
-        Debug.Log(doubleJumpPower);
 
         if (doubleJumpPower || shootPower)
         {

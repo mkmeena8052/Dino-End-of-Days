@@ -5,8 +5,12 @@ public class PowerUp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (gameObject.CompareTag("Chilli")) collision.gameObject.GetComponent<PlayerMovement>().shootPower = true;
-            else if (gameObject.CompareTag("Copter")) collision.gameObject.GetComponent<PlayerMovement>().doubleJumpPower = true;
+            if (gameObject.CompareTag("Copter"))
+            {
+                collision.gameObject.GetComponent<PlayerMovement>().doubleJumpPower = true;
+                FindAnyObjectByType<AudioManager>().Play("Copter Sound");
+            }
+
             Destroy(gameObject);
         }
     }
