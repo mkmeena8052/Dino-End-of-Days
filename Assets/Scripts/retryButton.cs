@@ -1,16 +1,19 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class retryButton : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void doExitGame()
     {
-        
+        Time.timeScale = 1f;
+        Application.Quit();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void reloadScene()
     {
-        
+        Time.timeScale = 1f;
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+
     }
 }
