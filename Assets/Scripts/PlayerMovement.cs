@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce;
 
     [SerializeField] private Transform groundCheckTransform;
+    [SerializeField] private HealthHUD healthHUD;
+
     public LayerMask groundLayer;
     public float groundCheckRadius;
     public bool isGrounded;
@@ -69,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
             if (!isDead) playerDied();
             else Debug.Log("Damage Taken: " + amount);
         }
+        healthHUD.UpdateHealth(playerHealth);
         
     }
 

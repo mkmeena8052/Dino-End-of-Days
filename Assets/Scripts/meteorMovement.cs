@@ -15,11 +15,15 @@ public class MeteorMovement : MonoBehaviour
     [SerializeField] private float boulderLaunchForce = 2f;
     [SerializeField] private float boulderSize = 0.8f;
 
+    [SerializeField] private Sprite[] sprites;
+
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerMovement = player.GetComponent<PlayerMovement>();
         rigidbody = GetComponent<Rigidbody2D>();
+
+        transform.GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Length)];
     }
 
     void Update()

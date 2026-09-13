@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 1285494874978567027}
   - component: {fileID: 5375350977073356392}
   - component: {fileID: 9045307338514469505}
-  - component: {fileID: 1670441247826744231}
-  m_Layer: 6
-  m_Name: Boulder
-  m_TagString: Untagged
+  - component: {fileID: 3373612818517775255}
+  m_Layer: 7
+  m_Name: Meteor - Large
+  m_TagString: Meteor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,12 +84,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: a3afb448225091b498f8b6d9fa9468d7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4b945fa7439d3264fb19a34ff1ffab41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.34375, y: 1.34375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -106,7 +106,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 20
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -156,8 +156,8 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.35
---- !u!114 &1670441247826744231
+  m_Radius: 1.5
+--- !u!114 &3373612818517775255
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,12 +166,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 3897737167925254511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83c56f0cb64721f45aef4c511ba82c93, type: 3}
+  m_Script: {fileID: 11500000, guid: 32c39b8db9cfb314f873f9e6154233e4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Boulder
-  n: 5
+  m_EditorClassIdentifier: '::'
+  METEORSPEED: 1.5
+  boulderPrefab: {fileID: 3897737167925254511, guid: d00fb391c5359394696309d304b37183, type: 3}
+  boulderCount: 2
+  boulderSpawnOffset: 0.3
+  boulderLaunchForce: 2
+  boulderSize: 1
   sprites:
-  - {fileID: 21300000, guid: a3afb448225091b498f8b6d9fa9468d7, type: 3}
-  - {fileID: 21300000, guid: 7773fb87c1f68794b91f0b58deeeab53, type: 3}
-  - {fileID: 21300000, guid: 95e830cf72d8d7b4096f654c72a0e1c8, type: 3}
-  - {fileID: 21300000, guid: a9e2db163c8fdb049bcdfec7f8a03e1a, type: 3}
+  - {fileID: 21300000, guid: b3cbfc16f4a58034e856c30915ad789e, type: 3}
+  - {fileID: 21300000, guid: 4b945fa7439d3264fb19a34ff1ffab41, type: 3}
+  - {fileID: 21300000, guid: 8119d1ad5edd8fa45ae46adc01532272, type: 3}
+  - {fileID: 21300000, guid: d2f02d0f741177748b0b2164c11fc230, type: 3}
+  - {fileID: 21300000, guid: 068a40fcffed30644b699fef29709f90, type: 3}
+  - {fileID: 21300000, guid: 70c31b2728c50484f9f26d8dc2a48282, type: 3}
+  - {fileID: 21300000, guid: 4e2b6f365b086ae4cb260814d57ce8c4, type: 3}
+  - {fileID: 21300000, guid: 9fdfe065547b9644f880e9ae0749a294, type: 3}

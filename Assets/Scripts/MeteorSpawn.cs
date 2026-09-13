@@ -1,9 +1,10 @@
+using UnityEditor;
 using UnityEngine;
 
 public class MeteorSpawn : MonoBehaviour
 {
     [Header("Spawn Settings")]
-    [SerializeField] private GameObject meteorPrefab;
+    [SerializeField] private GameObject[] meteorPrefabs;
     [SerializeField] private float spawnInterval = 2f;
 
     private BoxCollider2D spawnArea;
@@ -27,11 +28,8 @@ public class MeteorSpawn : MonoBehaviour
 
     private void SpawnMeteor()
     {
-        if (meteorPrefab == null || spawnArea == null)
-            return;
-
         Vector2 spawnPoint = GetRandomPointInBounds();
-        Instantiate(meteorPrefab, spawnPoint, Quaternion.identity);
+        Instantiate(meteorPrefabs[Random.Range(0, 3)], spawnPoint, Quaternion.identity);
     }
 
     private Vector2 GetRandomPointInBounds()
