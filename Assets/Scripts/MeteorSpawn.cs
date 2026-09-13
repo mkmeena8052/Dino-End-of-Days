@@ -29,7 +29,10 @@ public class MeteorSpawn : MonoBehaviour
     private void SpawnMeteor()
     {
         Vector2 spawnPoint = GetRandomPointInBounds();
-        Instantiate(meteorPrefabs[Random.Range(0, 3)], spawnPoint, Quaternion.identity);
+        GameObject toSpawn;
+        toSpawn = meteorPrefabs[Random.Range(0, 3)];
+
+        Instantiate(toSpawn, spawnPoint, Quaternion.identity);
     }
 
     private Vector2 GetRandomPointInBounds()

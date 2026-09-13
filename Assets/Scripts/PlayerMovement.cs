@@ -26,6 +26,10 @@ class PlayerMovement : MonoBehaviour {
     public bool shootPower = false;
     public bool doubleJumpPower = false;
 
+    [SerializeField] private Sprite[] copterSprites;
+    [SerializeField] private Sprite[] basicSprites;
+
+
     void Awake()
     {
         playerInput = new PlayerInput();
@@ -101,9 +105,21 @@ class PlayerMovement : MonoBehaviour {
 
     void Update()
     {
+        Debug.Log(doubleJumpPower);
+
         if (doubleJumpPower || shootPower)
         {
             powerupTimer -= Time.deltaTime;
+            if (spriteRenderer.sprite.name != "dino_6" || spriteRenderer.sprite.name != "dino_7" || spriteRenderer.sprite.name != "dino_8")
+            {
+
+            }
+        } else
+        {
+            if (spriteRenderer.sprite.name != "dino_6" || spriteRenderer.sprite.name != "dino_7" || spriteRenderer.sprite.name != "dino_8")
+            {
+
+            }
         }
 
         if (powerupTimer <= 0)
@@ -115,6 +131,7 @@ class PlayerMovement : MonoBehaviour {
         if (doubleJumpPower && isGrounded) canDoubleJump = true;
 
         anim.SetFloat("move", move);
+        anim.SetBool("doubleJumpPower", doubleJumpPower);
         if (move < 0) spriteRenderer.flipX = true;
         else if (move > 0) spriteRenderer.flipX = false;
 

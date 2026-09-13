@@ -175,6 +175,7 @@ MonoBehaviour:
   boulderSpawnOffset: 0.3
   boulderLaunchForce: 2
   boulderSize: 0.8
+  copterPrefab: {fileID: 2484206042417358614, guid: 91e111f561e78e54b8b617d00f14edfb, type: 3}
   sprites:
   - {fileID: 21300000, guid: c72086ffa9fb18d4b8b9bec4023e6bff, type: 3}
   - {fileID: 21300000, guid: 39f5bcf721415894cb8c357b703586c3, type: 3}

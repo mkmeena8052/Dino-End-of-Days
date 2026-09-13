@@ -14,6 +14,8 @@ public class MeteorMovement : MonoBehaviour
     [SerializeField] private float boulderSpawnOffset = 0.3f;
     [SerializeField] private float boulderLaunchForce = 2f;
     [SerializeField] private float boulderSize = 0.8f;
+    [SerializeField] private GameObject copterPrefab;
+
 
     [SerializeField] private Sprite[] sprites;
 
@@ -52,8 +54,14 @@ public class MeteorMovement : MonoBehaviour
             float direction = (i % 2 == 0) ? -1f : 1f;
             Vector3 spawnPos = transform.position + new Vector3(direction * boulderSpawnOffset, 0f, 0f);
 
-            GameObject boulder = Instantiate(boulderPrefab, spawnPos, Quaternion.identity);
-            boulder.transform.localScale = new Vector3(boulderSize, boulderSize, 1);
+            GameObject toSpawn;
+            int randNumber = Random.Range(1, 7);
+
+            if (randNumber == 0) toSpawn = copterPrefab;
+            else toSpawn = boulderPrefab;
+
+            GameObject boulder = Instantiate(toSpawn, spawnPos, Quaternion.identity);
+            if (randNumber != 0) boulder.transform.localScale = new Vector3(boulderSize, boulderSize, 1);
 
             Rigidbody2D boulderRb = boulder.GetComponent<Rigidbody2D>();
             if (boulderRb != null)

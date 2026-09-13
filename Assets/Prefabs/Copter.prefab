@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3897737167925254511
+--- !u!1 &2484206042417358614
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3772644525312398091}
-  - component: {fileID: 1285494874978567027}
-  - component: {fileID: 5375350977073356392}
-  - component: {fileID: 9045307338514469505}
-  - component: {fileID: 3373612818517775255}
-  m_Layer: 7
-  m_Name: Meteor - Large
-  m_TagString: Meteor
+  - component: {fileID: 3289752718559768759}
+  - component: {fileID: 276409990552802519}
+  - component: {fileID: 1339762382919181540}
+  - component: {fileID: 5096533554460692527}
+  - component: {fileID: 5697140437743513865}
+  m_Layer: 0
+  m_Name: Copter
+  m_TagString: Copter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3772644525312398091
+--- !u!4 &3289752718559768759
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3897737167925254511}
+  m_GameObject: {fileID: 2484206042417358614}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.44, y: 5.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 4.6, y: 4.61, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1285494874978567027
+--- !u!212 &276409990552802519
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3897737167925254511}
+  m_GameObject: {fileID: 2484206042417358614}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -84,29 +84,29 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 4b945fa7439d3264fb19a34ff1ffab41, type: 3}
+  m_Sprite: {fileID: 6761164967045977113, guid: 6ab6ef50c30a8d54996a57f1a4ac5734, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.34375, y: 1.34375}
+  m_Size: {x: 0.17, y: 0.14}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!50 &5375350977073356392
+--- !u!50 &1339762382919181540
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3897737167925254511}
+  m_GameObject: {fileID: 2484206042417358614}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 20
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -120,14 +120,14 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!58 &9045307338514469505
+  m_Constraints: 0
+--- !u!58 &5096533554460692527
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3897737167925254511}
+  m_GameObject: {fileID: 2484206042417358614}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -156,32 +156,16 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1.5
---- !u!114 &3373612818517775255
+  m_Radius: 0.25
+--- !u!114 &5697140437743513865
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3897737167925254511}
+  m_GameObject: {fileID: 2484206042417358614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32c39b8db9cfb314f873f9e6154233e4, type: 3}
+  m_Script: {fileID: 11500000, guid: dadb6f1f0e1dcb243a7607a523b346ed, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  METEORSPEED: 1.5
-  boulderPrefab: {fileID: 3897737167925254511, guid: d00fb391c5359394696309d304b37183, type: 3}
-  boulderCount: 2
-  boulderSpawnOffset: 0.3
-  boulderLaunchForce: 2
-  boulderSize: 1
-  copterPrefab: {fileID: 2484206042417358614, guid: 91e111f561e78e54b8b617d00f14edfb, type: 3}
-  sprites:
-  - {fileID: 21300000, guid: b3cbfc16f4a58034e856c30915ad789e, type: 3}
-  - {fileID: 21300000, guid: 4b945fa7439d3264fb19a34ff1ffab41, type: 3}
-  - {fileID: 21300000, guid: 8119d1ad5edd8fa45ae46adc01532272, type: 3}
-  - {fileID: 21300000, guid: d2f02d0f741177748b0b2164c11fc230, type: 3}
-  - {fileID: 21300000, guid: 068a40fcffed30644b699fef29709f90, type: 3}
-  - {fileID: 21300000, guid: 70c31b2728c50484f9f26d8dc2a48282, type: 3}
-  - {fileID: 21300000, guid: 4e2b6f365b086ae4cb260814d57ce8c4, type: 3}
-  - {fileID: 21300000, guid: 9fdfe065547b9644f880e9ae0749a294, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUp
