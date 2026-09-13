@@ -57,11 +57,11 @@ public class MeteorMovement : MonoBehaviour
             GameObject toSpawn;
             int randNumber = Random.Range(1, 7);
 
-            if (randNumber == 0) toSpawn = copterPrefab;
+            if (randNumber == 2) toSpawn = copterPrefab;
             else toSpawn = boulderPrefab;
 
             GameObject boulder = Instantiate(toSpawn, spawnPos, Quaternion.identity);
-            if (randNumber != 0) boulder.transform.localScale = new Vector3(boulderSize, boulderSize, 1);
+            if (randNumber != 2) boulder.transform.localScale = new Vector3(boulderSize, boulderSize, 1);
 
             Rigidbody2D boulderRb = boulder.GetComponent<Rigidbody2D>();
             if (boulderRb != null)

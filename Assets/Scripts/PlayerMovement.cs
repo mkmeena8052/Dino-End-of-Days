@@ -104,7 +104,7 @@ class PlayerMovement : MonoBehaviour {
     {
         Debug.Log("Player Died!");
         FindAnyObjectByType<AudioManager>().Play("Game Over");
-        Destroy(gameObject);
+        FindAnyObjectByType<retryButton>().reloadScene();
     }
 
 
