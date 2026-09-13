@@ -12,7 +12,9 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
     public float groundCheckRadius;
     public bool isGrounded;
+    public bool isDead = false;
     float move;
+    private int playerHealth = 3;
     Rigidbody2D rb;
 
     void Awake()
@@ -57,10 +59,24 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireSphere(groundCheckTransform.position, groundCheckRadius);
     }
 
-    public void gameOver()
+    public void takeDamage(int amount)
     {
         // Kills player
-        Debug.Log("Game Over");
+        playerHealth -= amount;
+        if (playerHealth < 0)
+        {
+            playerHealth = 0;
+            if (!isDead) playerDied();
+            else Debug.Log("Damage Taken: " + amount);
+        }
+        
+    }
+
+    public void playerDied()
+    {
+        Debug.Log("Player Died!");
+        isDead = true;
+        Destroy(gameObject);
     }
 
     void Start()

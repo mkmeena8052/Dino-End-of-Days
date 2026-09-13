@@ -31,7 +31,7 @@ public class MeteorMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            playerMovement.gameOver();
+            playerMovement.takeDamage(1);
         }
         else if (collision.gameObject.CompareTag("Ground"))
         {
