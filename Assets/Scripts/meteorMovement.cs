@@ -4,7 +4,7 @@ public class MeteorMovement : MonoBehaviour
 {
     GameObject player;
     PlayerMovement playerMovement;
-    Rigidbody2D rigidbody;
+    new Rigidbody2D rigidbody;
 
     [SerializeField] private float METEORSPEED = 3f;
 
@@ -13,6 +13,7 @@ public class MeteorMovement : MonoBehaviour
     [SerializeField] private int boulderCount = 2;
     [SerializeField] private float boulderSpawnOffset = 0.3f;
     [SerializeField] private float boulderLaunchForce = 2f;
+    [SerializeField] private float boulderSize = 0.8f;
 
     void Awake()
     {
@@ -34,7 +35,6 @@ public class MeteorMovement : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("Shattered!");
             ShatterIntoBoulders();
             Destroy(gameObject);
         }
@@ -49,6 +49,7 @@ public class MeteorMovement : MonoBehaviour
             Vector3 spawnPos = transform.position + new Vector3(direction * boulderSpawnOffset, 0f, 0f);
 
             GameObject boulder = Instantiate(boulderPrefab, spawnPos, Quaternion.identity);
+            boulder.transform.localScale = new Vector3(boulderSize, boulderSize, 1);
 
             Rigidbody2D boulderRb = boulder.GetComponent<Rigidbody2D>();
             if (boulderRb != null)
