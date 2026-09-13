@@ -1,11 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
-public class PlayerMovement : MonoBehaviour
-{
-    private PlayerInput playerInput;
-
+class PlayerMovement : MonoBehaviour {
+    [SerializeField] private PlayerInput playerInput;
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
 
@@ -18,10 +15,16 @@ public class PlayerMovement : MonoBehaviour
     public float groundCheckRadius;
     public bool isGrounded;
     public bool isDead = false;
-    float move;
+    public bool canDoubleJump = false;
+    public bool canShoot = false;
+    private float move;
+    private float powerupTimer = 10f;
     private int playerHealth = 3;
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
+
+    public bool shootPower = false;
+    public bool doubleJumpPower = false;
 
     void Awake()
     {
@@ -36,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         playerInput.Player.Move.performed += Movement;
         playerInput.Player.Move.canceled += Movement;
         playerInput.Player.Jump.performed += Jumping;
+        playerInput.Player.Attack.performed += Attacking;
     }
 
     void OnDisable()
@@ -44,21 +48,29 @@ public class PlayerMovement : MonoBehaviour
         playerInput.Player.Move.performed -= Movement;
         playerInput.Player.Move.canceled -= Movement;
         playerInput.Player.Jump.performed -= Jumping;
+        playerInput.Player.Attack.performed -= Attacking;
     }
-
-
 
     void Movement(InputAction.CallbackContext context)
     {
         move = context.ReadValue<Vector2>().x;
     }
 
-    void Jumping(InputAction.CallbackContext context) {
-        if (context.performed) {
-            if (isGrounded) {
+    void Jumping(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (isGrounded || (!isGrounded && canDoubleJump))
+            {
                 rb.linearVelocityY = jumpForce;
+                canDoubleJump = false;
             }
         }
+    }
+
+    void Attacking(InputAction.CallbackContext context)
+    {
+
     }
 
     void OnDrawGizmosSelected()
@@ -69,16 +81,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void takeDamage(int amount)
     {
-        // Kills player
-        playerHealth -= amount;
-        if (playerHealth <= 0)
-        {
+        if (playerHealth <= 0) {
             playerHealth = 0;
             if (!isDead) playerDied();
             else Debug.Log("Damage Taken: " + amount);
         }
         healthHUD.UpdateHealth(playerHealth);
-        
     }
 
     public void playerDied()
@@ -88,15 +96,25 @@ public class PlayerMovement : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+
+    void Start() { rb = GetComponent<Rigidbody2D>(); }
 
     void Update()
     {
+        if (doubleJumpPower || shootPower)
+        {
+            powerupTimer -= Time.deltaTime;
+        }
+
+        if (powerupTimer <= 0)
+        {
+            powerupTimer = 10f;
+            doubleJumpPower = false;
+            shootPower = false;
+        }
+        if (doubleJumpPower && isGrounded) canDoubleJump = true;
+
         anim.SetFloat("move", move);
-        Debug.Log(move);
         if (move < 0) spriteRenderer.flipX = true;
         else if (move > 0) spriteRenderer.flipX = false;
 
