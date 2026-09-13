@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheckTransform;
     [SerializeField] private HealthHUD healthHUD;
 
+    private Animator anim;
+
     public LayerMask groundLayer;
     public float groundCheckRadius;
     public bool isGrounded;
@@ -19,10 +21,13 @@ public class PlayerMovement : MonoBehaviour
     float move;
     private int playerHealth = 3;
     Rigidbody2D rb;
+    SpriteRenderer spriteRenderer;
 
     void Awake()
     {
         playerInput = new PlayerInput();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     void OnEnable()
@@ -66,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Kills player
         playerHealth -= amount;
-        if (playerHealth < 0)
+        if (playerHealth <= 0)
         {
             playerHealth = 0;
             if (!isDead) playerDied();
@@ -90,6 +95,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        anim.SetFloat("move", move);
+        Debug.Log(move);
+        if (move < 0) spriteRenderer.flipX = true;
+        else if (move > 0) spriteRenderer.flipX = false;
+
         isGrounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundLayer);
         rb.linearVelocityX = move * speed;
     }
