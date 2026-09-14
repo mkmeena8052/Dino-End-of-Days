@@ -55,7 +55,7 @@ public class MeteorMovement : MonoBehaviour
             Vector3 spawnPos = transform.position + new Vector3(direction * boulderSpawnOffset, 0f, 0f);
 
             GameObject toSpawn;
-            int randNumber = Random.Range(1, 7);
+            int randNumber = Random.Range(1, 18);
 
             if (randNumber == 2) toSpawn = copterPrefab;
             else toSpawn = boulderPrefab;
